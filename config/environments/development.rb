@@ -70,8 +70,8 @@ Rails.application.configure do
     :address => "smtp.lolipop.jp",
     :port => 587,
     :user_name => "＜ロリポップのユーザー名＞",
-    :password => Rails.application.credentials.LOLIPOP_PASSWORD,　#＜＝rails credential内にパスワードを定義しました。
-    :authentication => :'login',　#＜＝ロリポップはこの設定にして下さい。
+    :password => Rails.application.credentials.LOLIPOP_PASSWORD, #＜＝rails credential内にパスワードを定義しました。
+    :authentication => :'login', #＜＝ロリポップはこの設定にして下さい。
     :enable_starttls_auto => true
   }
 end
