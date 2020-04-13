@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Workbooks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Workbooks" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Workbooks" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
     <header>
-      <nav>
-        <% if user_signed_in? %>
-          <strong>ユーザー名: <%= current_user.show_name %></strong>
-
-          <strong><%= link_to "Home", root_path %></strong>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
-      </nav>
+      <%= render 'layouts/navigation' %>
     </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
   </body>
 </html>
