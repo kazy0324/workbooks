@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def show_name
     self.name.present? ? self.name : self.email
   end
+
+  def teacher?
+    self.type == "Teacher"
+  end
 end
