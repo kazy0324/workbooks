@@ -1,6 +1,6 @@
 <% if current_user.present? %>
   <h2>ようこそ、<%= current_user.name %>さん！</h2>
-  <% if current_user.teacher %>
+  <% if current_user.type == "Teacher" %>
     <div class="">
       <div class="col-md-10-offset-1">
         <table class="table">
