@@ -1,4 +1,4 @@
-<div class="authform">
+<div class="container col-md-10 col-md-offset-1">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
     <h4 class="label_for_auth">サインイン</h4>
     <%= devise_error_messages! %>
@@ -11,18 +11,18 @@
     </div>
     <div class="form-group">
       <%- if devise_mapping.recoverable? %>
-        <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'right' %>
+        <%#= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name), class: 'right' %>
       <% end -%>
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
-      <%= f.submit 'Sign in', :class => 'button right' %>
-      <% if devise_mapping.rememberable? -%>
-        <div class="checkbox" style="width:150px">
-          <label>
-            <%= f.check_box :remember_me %> アカウント情報を保存する
-          </label>
-        </div>
-      <% end -%>
+    <% if devise_mapping.rememberable? -%>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :remember_me %> メールアドレスとパスワードを保存する
+        </label>
+      </div>
+    <% end -%>
+    <%= f.submit 'ログイン', :class => 'button btn btn-primary submit_button' %>
   <% end %>
 </div>
