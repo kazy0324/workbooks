@@ -13,7 +13,8 @@
     <header>
       <nav>
         <% if user_signed_in? %>
-          <strong>Login account : <%= current_user.email %></strong>
+          <strong>ユーザー名: <%= current_user.show_name %></strong>
+
           <strong><%= link_to "Home", root_path %></strong>
           <%= link_to 'プロフィール変更', edit_user_registration_path %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
