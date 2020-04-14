@@ -3,22 +3,33 @@
   <% if current_user.teacher? %>
     <div class="">
       <div class="col-md-10-offset-1">
-        <table class="table">
-          <tbody>
-            <tr>
-              <th></th>
-              <th>授業名</th>
-              <th>学校</th>
-              <th>受講者数</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>英米事情 I</td>
-              <td>京都外国語専門学校</td>
-              <td>12</td>
-            </tr>
-          </tbody>
-        </table>
+        <% if current_user.courses.present? %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th></th>
+                <th>講義名</th>
+                <th>学校</th>
+                <th>学期</th>
+                <th>開講時間</th>
+
+                <th>受講者数</th>
+              </tr>
+              <% current_user.courses.each_with_index do |course, i|%>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td><%= course.name %></td>
+                  <td><%= course.school %></td>
+                  <td></td>
+                  <td></td>
+                  <td><%= course.students.size %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          現在開講予定の講義はありません。
+        <% end %>
       </div>
     </div>
 

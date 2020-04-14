@@ -14,4 +14,5 @@ class User < ApplicationRecord
   def teacher?
     self.type == "Teacher"
   end
+  
 end
