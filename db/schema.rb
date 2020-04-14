@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_125644) do
+ActiveRecord::Schema.define(version: 2020_04_14_133819) do
 
   create_table "course_registrations", force: :cascade do |t|
     t.integer "student_id"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_125644) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "teacher_id"
+    t.integer "period", default: 1, null: false
+    t.string "semester", default: "", null: false
+    t.date "from"
+    t.date "to"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
