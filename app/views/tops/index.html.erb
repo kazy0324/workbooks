@@ -1,0 +1,32 @@
+<% if current_user.present? %>
+  <h2>ようこそ、<%= current_user.name %>さん！</h2>
+  <% if current_user.teacher? %>
+    <div class="">
+      <div class="col-md-10-offset-1">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th></th>
+              <th>授業名</th>
+              <th>学校</th>
+              <th>受講者数</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>英米事情 I</td>
+              <td>京都外国語専門学校</td>
+              <td>12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  <% else %>
+    学生ですか
+  <% end %>
+
+<% else %>
+  <%= render 'pages/about' %>
+<% end %>
